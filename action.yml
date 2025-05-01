@@ -50,7 +50,7 @@ runs:
         echo "directory=$tempdir" >> $GITHUB_OUTPUT
 
     - name: Setup Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: '3.8.13'
         cache: 'pip'
