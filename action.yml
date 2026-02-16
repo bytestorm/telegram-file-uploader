@@ -56,20 +56,3 @@ runs:
           -t ${{ inputs.bot-token }} -ch ${{ inputs.chat-id }} -f "${{ inputs.file-path }}" -m "${{ inputs.message }}")
         echo "output=$output" >> $GITHUB_OUTPUT
       shell: bash
-
-    - name: Send reply request if couldn't send file
-      if: ${{ steps.sendfile.outputs.output == 'ERROR' }}
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ inputs.chat-id }}
-        token: ${{ inputs.bot-token }}
-        message: ${{ inputs.reply-request }}
-
-    - name: Wait for permission and send file
-      if: ${{ steps.sendfile.outputs.output == 'ERROR' }}
-      run: |
-        output=$(python ${{ github.action_path }}/upload.py \
-          -s "${{ inputs.session-name }}" -ai ${{ inputs.api-id }} -ah ${{ inputs.api-hash }} \
-          -t ${{ inputs.bot-token }} -ch ${{ inputs.chat-id }} -f ${{ inputs.file-path }} -m "${{ inputs.message }}" \
-          --wait-permission --wait-time ${{ inputs.wait-for-permission-time }})
-      shell: bash
