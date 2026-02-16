@@ -42,6 +42,7 @@ runs:
       uses: actions/setup-python@v6
       with:
         python-version: '3.13.12'
+        cache: 'pip'
 
     - name: Install python dependencies
       run: pip install -U -r ${{ github.action_path }}/requirements.txt
