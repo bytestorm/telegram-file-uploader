@@ -53,6 +53,6 @@ runs:
       run: |
         output=$(python ${{ github.action_path }}/upload.py \
           -s "${{ inputs.session-name }}" -ai ${{ inputs.api-id }} -ah ${{ inputs.api-hash }} \
-          -t ${{ inputs.bot-token }} -ch ${{ inputs.chat-id }} -f "${{ inputs.file-path }}" -m "${{ inputs.message }}")
+          -t ${{ inputs.bot-token }} -ch ${{ inputs.chat-id }} -f ${{ inputs.file-path }} -m "${{ inputs.message }}")
         echo "output=$output" >> $GITHUB_OUTPUT
       shell: bash
