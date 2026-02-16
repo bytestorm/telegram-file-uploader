@@ -45,7 +45,7 @@ runs:
         # `cache-dependency-path` seems to need to be within the current directory. Use a temporary directory
         # took it from https://github.com/PeterJCLaw/srcomp-validate-action/blob/master/action.yml
         # issue https://github.com/actions/setup-python/issues/361
-        tempdir=$(mktemp --directory --tmpdir=.)
+        tempdir=$(mktemp --directory --tmpdir=/tmp/)
         cp ${{ github.action_path }}/**requirements.txt $tempdir
         echo "directory=$tempdir" >> $GITHUB_OUTPUT
 
