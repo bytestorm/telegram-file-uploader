@@ -11,7 +11,7 @@ def parse_arguments():
     parser.add_argument("-ai", dest="api_id", type=str)
     parser.add_argument("-ah", dest="api_hash", type=str)
     parser.add_argument("-t", dest="bot_token", type=str)
-    parser.add_argument("-ch", dest="chat_id", type=str)
+    parser.add_argument("-ch", dest="chat_id", type=int)
     parser.add_argument("-f", dest="file_path", type=str)
     parser.add_argument("-m", dest="message", required=False, default="", type=str)
     parser.add_argument("--wait-permission", dest="wait_permission", action="store_true")
